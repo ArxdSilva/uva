@@ -24,5 +24,6 @@ int main()
     {
         str2[count]=str1[count];
     }
-    str2[count]="\0"
+    str2[count]="\0";
+    return(0);
 }
