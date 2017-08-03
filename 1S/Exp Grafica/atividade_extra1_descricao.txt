@@ -1,3 +1,0 @@
-A primeira atividade extra classe sera dividida em duas partes:
-1. Desenhar a peça dada no AUTOCAD, iniciando o ponto A na coordenada 5,0.
-2. Passar para uma folha oficio as coordenadas de cada ponto da peça (ex. A=5,0 - B=8,3 - etc.)
