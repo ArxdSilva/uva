@@ -1,5 +1,29 @@
-ENTIDADE: 
+- ER (Entidade-Relacionamento)
+- DER (Diagrama Entidade-Relacionamento)
+- ENTIDADE: 
 conjunto de objetos da realidade modelada sobre os quais 
 desja-se manter informacos no BD
+- Modelo conceitual:
+entidade é o conjunto de objetos da realidade modelada
+Só nos interessa os objetos pelos quais desejamos 
+manter informacoes
 
+entidade pode representar tanto objetos concretos 
+(pessoa, carro...) quanto abstratos (departamento, endereco)
 
+No DER a entidade é representada por retangulo e este é um 
+conjunto de objetos sobre os quais deseja-se guardar informacoes
+
+- 1 objeto particular da entidade: 
+    chama-se de 'ocorrencia' de entidade
+
+RELACIONAMENTO:
+    conjunto de associacoes entre entidades, representado
+    através de losango ligado por linhas entre retangulos 
+    (suas entidades) que participam do relacionamento.
+
+    auto-relacionamento: relacionamento  entre ocorrencias
+    de uma mesma entidade.
+
+    cardinalidade (min, max): numero de ocorrencias de entidade
+    associadas a uma ocorrencia da entidade em questao
