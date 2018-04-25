@@ -1,0 +1,10 @@
+RESUMO:
+1- Apresentação do tema |
+2 - Recorte do tema     | problema
+3 - PEsquisa
+4 - O que vai fazer com o material pesquisado:
+    - Estudo de caso; (ou)
+    - Requisito para desenvolvimento de um software para solucionar um problema;
+
+
+
