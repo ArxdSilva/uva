@@ -8,12 +8,16 @@ int main(int argc, char *argv[]) {
 	Item i;
 	Pl* p = createsPriorityList(10);
 	for (j = 0 ; j < 10 ; j++) {
+		// strncpy(i.name, "...", 20);
+        // if (j > 5) {
+        //     i.key = j*10;
+        // } else {
+        //     i.key = j;
+        // }
+		// insertsOnList(p, i);
+		printf("\nDigite algo:\n");
 		strncpy(i.name, "...", 20);
-        if (j > 5) {
-            i.key = j*10;
-        } else {
-            i.key = j;
-        }
+		scanf("%d", &i.key);
 		insertsOnList(p, i);
 	}
 	printTree(p);

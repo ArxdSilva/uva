@@ -32,33 +32,11 @@ int left(int pos) {return (2*pos);}
 int right(int pos) {return (2*pos)+1;}
 
 void priority_up(Pl* fp, int n) {
-    if (n == 0) {return;};
-	// if (fp->v[DAD(n)].key < fp->v[n].key) {
-	// 	change(&fp->v[DAD(n)], &fp->v[n]);
-	// 	priority_up(fp, DAD(n));
-	// }
-	if ((fp->v[n].key < fp->v[left(n)].key) || (fp->v[n].key < fp->v[right(n)].key)) {
-		if (fp->v[left(n)].key > fp->v[right(n)].key) {
-			change(&fp->v[n], &fp->v[left(n)]);
-			priority_up(fp, left(n));
-		} else if (fp->v[right(n)].key > fp->v[left(n)].key) {
-			change(&fp->v[n], &fp->v[right(n)]);
-			priority_up(fp, right(n));
-		}
+	if (n == 0) {return;};
+	if (fp->v[DAD(n)].key < fp->v[n].key) {
+		change(&fp->v[DAD(n)], &fp->v[n]);
+		priority_up(fp, DAD(n));
 	}
-}
-
-void priority_up2(Pl* fp, int n){
-  int esq = left(n);
-  int dir = right(n);
-  int temp;
-  int maior = n;
-  if ((fp->v[left(n)].key > fp->v[n].key)) maior = esq;
-  if ((fp->v[right(n)].key > fp->v[maior].key)) maior = dir;
-  if (maior != n) {
-    change(&fp->v[n], &fp->v[maior]);
-    priority_up(fp, maior);
-  }
 }
 
 void change(Item* a, Item* b) {
