@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "min.h"
 
-#define DAD(i) ((i-1) / 2)
+#define DAD(i) (i / 2)
 
 Pl* createsPriorityList(int t) {
 	Pl* prioList = (Pl*) malloc(sizeof(Pl));
@@ -31,17 +31,16 @@ Item topElement(Pl* pl) {
 int left(int pos) {return (2*pos);}
 int right(int pos) {return (2*pos)+1;}
 
+
 void priority_up(Pl* fp, int n) {
-	if ((fp->v[n].key > fp->v[left(n)].key) || (fp->v[n].key > fp->v[right(n)].key)) {
-		if (fp->v[left(n)].key > fp->v[right(n)].key) {
-			change(&fp->v[n], &fp->v[left(n)]);
-			priority_up(fp, left(n));
-		} else if (fp->v[right(n)].key > fp->v[left(n)].key) {
-			change(&fp->v[n], &fp->v[right(n)]);
-			priority_up(fp, right(n));
-		}
+	int pai = DAD(DAD(n));
+	if (n == 0) {return;};
+	if (fp->v[pai].key > fp->v[n].key) {
+		change(&fp->v[pai], &fp->v[n]);
+		priority_up(fp, pai);
 	}
 }
+
 
 void change(Item* a, Item* b) {
 	Item c = *a;
