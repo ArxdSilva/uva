@@ -1,0 +1,23 @@
+Bubble sort
+
+O que eh?
+Bubble sort é o algoritmo mais simples de ordenação de uma lista. 
+
+Como funciona?
+Através da varredura dos diversos elementos, 
+estes são comparados item a item. 
+
+Tal comparação ocorre sempre entre
+um item e seu vizinho direto, 
+como mostrado.
+
+Quando o item comparado possui seu valor maior que seu vizinho, 
+eles são reposicionados entre si, 
+assim mantemos à esquerda sempre o item de menor valor.
+
+Tal varredura item a item e trocas,
+ são feitas de forma iterativa até o último item da lista.
+
+A busca só finaliza quando uma varredura não realiza uma troca, 
+assim é considerada a lista como ordenada.
+
