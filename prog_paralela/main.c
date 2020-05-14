@@ -23,83 +23,49 @@ double power(double base, int expoente) {
    return (resultado);
 }
 
-double serie_seno(double x, int termos){
-   double pi = 3.14159265358979323846;
+double serie_seno(double ang, int termos){
    int i;
    double resultado;
    resultado = 0;
-   x = (x*pi)/180.0;
    for(i = 0; i < termos;i++){
-      resultado += power(-1, i) * power(x, 2*i + 1) / fatorial(2*i + 1);
+      resultado += power(-1, i) * power(ang, 2*i + 1) / fatorial(2*i + 1);
    }
    return (resultado);
 }
 
-double serie_coseno(double x, int termos){
-   double pi = 3.14159265358979323846;
+double serie_coseno(double ang, int termos){
    int i;
    double resultado;
    resultado = 0;
-   x = (x*pi)/180.0;
    for(i = 0; i < termos;i++){
       if (i == 0) {
          resultado += 1;
          continue;
       };
-      resultado += power(-1, i) * power(x, 2*i) / fatorial(2*i);
+      resultado += power(-1, i) * power(ang, 2*i) / fatorial(2*i);
    }
    return (resultado);
 }
 
-double coseno(){
-   double x;
-   int termos;
-   system("clear");
-   printf("****sen(x) pelo polinomio de Taylor****\n\n");
-   printf("Digite o numero de termos da sequencia: " );
-   scanf("%d", &termos);
-   printf("\nDigite o valor de x para o calculo do cosen(x), x = ");
-   scanf("%lf", &x);
-   printf("\n\nO resultado e: %1.15lf\n\n", serie_coseno(x, termos));
-   getchar();
+double tg(double ang, int n){
+   double sen = serie_seno(ang, n);
+   double cosen = serie_coseno(ang, n);
+   printf("\nO resultado sen e: \n%1.15lf\nsin:\n%1.15lf\nerro:\n%1.15lf\n", sen, sin(ang), (sin(ang)-sen));
+   printf("\nO resultado cosen e: \n%1.15lf\ncos:\n%1.15lf\nerro:\n%1.15lf\n", cosen, cos(ang), (cos(ang)-cosen));
+   printf("\nO resultado tg e: \n%1.15lf\ntan:\n%1.15lf\n\nerro:\n%1.15lf\n", sen/cosen, tan(ang), (tan(ang)-(sen/cosen)));
+   // printf("\nO resultado cosen e: %1.15lf\n", cosen);
+   // printf("\nO resultado tg e: %1.15lf\n", sen/cosen);
+   // printf("\nO resultado tg e: %1.15lf\n", sen/cosen);
    return 0;
 }
 
-double seno(){
-   double x;
-   int termos;
-   system("clear");
-   printf("****sen(x) pelo polinomio de Taylor****\n\n");
-   printf("Digite o numero de termos da sequencia: " );
-   scanf("%d", &termos);
-   printf("\nDigite o valor de x para o calculo do sen(x), x = ");
-   scanf("%lf", &x);
-   printf("\n\nO resultado e: %1.15lf\n\n", serie_seno(x, termos));
-   getchar();
-   return 0;
-}
-
-
-double tg(){
-   double x;
-   int termos;
-   system("clear");
-   printf("****sen(x) pelo polinomio de Taylor****\n\n");
-   printf("Digite o numero de termos da sequencia: " );
-   scanf("%d", &termos);
-   printf("\nDigite o valor de x para o calculo do sen(x), x = ");
-   scanf("%lf", &x);
-   double sen = serie_seno(x, termos);
-   double cosen = serie_coseno(x, termos);
-   printf("\n\nO resultado sen e: %1.15lf\n\n", sen);
-   printf("\n\nO resultado cosen e: %1.15lf\n\n", cosen);
-   printf("\n\nO resultado tg e: %1.15lf\n\n", sen/cosen);
-   getchar();
-   return 0;
-}
-
-int main(){
-   tg();
+int main(int argc, char *argv[]){
+   int n = atoi(argv[1]);
+   double pi = 3.14159265358979323846;
+   double ang=0.0;
+   ang = (double) (atof(argv[2]) + (atof(argv[3])/60.0) + (atof(argv[4])/3600.0));
+   ang = (ang*pi)/180.0; // angulo em radianos
+   tg(ang, n);
    // seno();
    // coseno();
    return 0;
